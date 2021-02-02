@@ -1,0 +1,6 @@
+# Generated sources
+target/
+
+# IntelliJ
+.idea/
+*.iml
