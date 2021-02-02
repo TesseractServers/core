@@ -6,7 +6,19 @@
 	<artifactId>core</artifactId>
 	<version>1.0.0-PRE-1</version>
 
+	<repositories>
+		<repository>
+			<id>tassia-nexus</id>
+			<url>https://nexus.tassia.net/repository/maven-public/</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
+		<dependency>
+			<groupId>net.tassia</groupId>
+			<artifactId>event-api</artifactId>
+			<version>1.0.0-R0.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
