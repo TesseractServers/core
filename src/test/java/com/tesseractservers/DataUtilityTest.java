@@ -15,7 +15,6 @@ public class DataUtilityTest {
 			byte[] buffer = DataUtility.intToBytes(x);
 			int x2 = DataUtility.bytesToInt(buffer);
 			if (x != x2) {
-				System.err.println("---------- << ERROR INFORMATION >> ----------");
 				throw new AssertionError("Integer-Bytes conversion failed for " + x + "\n" +
 					"\n---------- << ERROR INFORMATION >> ----------" +
 					"\nStarting value: " + Integer.toHexString(x) +
