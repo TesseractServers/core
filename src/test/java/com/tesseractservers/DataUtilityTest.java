@@ -9,7 +9,6 @@ public class DataUtilityTest {
 	@Test
 	public void testIntegersRandom() {
 		Random random = new Random();
-
 		for (int i = 0; i < 4096 * 4096; i++) {
 			int x = random.nextInt();
 			byte[] buffer = DataUtility.intToBytes(x);
