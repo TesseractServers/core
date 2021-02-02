@@ -26,7 +26,7 @@
 <dependency>
     <groupId>com.tesseractservers</groupId>
     <artifactId>core</artifactId>
-    <version>1.0.0-PRE-1</version>
+    <version>1.0.0-PRE-2</version>
 </dependency>
 ```
 
