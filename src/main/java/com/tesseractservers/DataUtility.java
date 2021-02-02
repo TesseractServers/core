@@ -66,16 +66,88 @@ public class DataUtility {
 	 * @throws ArrayIndexOutOfBoundsException if array is too short or offset is invalid
 	 * @see #bytesToInt(byte[])
 	 */
-	@SuppressWarnings("PointlessArithmeticExpression")
 	public static int bytesToInt(byte[] buffer, int offset) {
-		int value = 0;
-		value |= buffer[offset + 0] & 0xFF;
-		value <<= 8;
-		value |= buffer[offset + 1] & 0xFF;
-		value <<= 8;
-		value |= buffer[offset + 2] & 0xFF;
-		value <<= 8;
-		value |= buffer[offset + 3] & 0xFF;
+		int value = buffer[offset] & 0xFF;
+		for (int i = 1; i < 4; i++) {
+			value <<= 8;
+			value |= buffer[offset + i] & 0xFF;
+		}
+		return value;
+	}
+
+
+
+	/**
+	 * Converts the given long to 8 bytes.
+	 * @param value the long
+	 * @return the bytes
+	 * @see #longToBytes(long, byte[])
+	 * @see #longToBytes(long, byte[], int)
+	 */
+	public static byte[] longToBytes(long value) {
+		byte[] buffer = new byte[8];
+		longToBytes(value, buffer, 0);
+		return buffer;
+	}
+
+	/**
+	 * Converts the given long to 8 bytes and stores them in the buffer array.
+	 * @param value the integer
+	 * @param buffer the byte buffer
+	 * @throws ArrayIndexOutOfBoundsException if array is too short
+	 * @see #longToBytes(long)
+	 * @see #longToBytes(long, byte[], int)
+	 */
+	public static void longToBytes(long value, byte[] buffer) {
+		longToBytes(value, buffer, 0);
+	}
+
+	/**
+	 * Converts the given long to 8 bytes and stores them in the buffer array.
+	 * @param value the integer
+	 * @param buffer the byte buffer
+	 * @param offset the offset
+	 * @throws ArrayIndexOutOfBoundsException if array is too short or offset is invalid
+	 * @see #longToBytes(long)
+	 * @see #longToBytes(long, byte[])
+	 */
+	@SuppressWarnings({"PointlessArithmeticExpression", "PointlessBitwiseExpression"})
+	public static void longToBytes(long value, byte[] buffer, int offset) {
+		buffer[offset + 0] = (byte) ((value >> 56) & 0xFF);
+		buffer[offset + 1] = (byte) ((value >> 48) & 0xFF);
+		buffer[offset + 2] = (byte) ((value >> 40) & 0xFF);
+		buffer[offset + 3] = (byte) ((value >> 32) & 0xFF);
+		buffer[offset + 4] = (byte) ((value >> 24) & 0xFF);
+		buffer[offset + 5] = (byte) ((value >> 16) & 0xFF);
+		buffer[offset + 6] = (byte) ((value >>  8) & 0xFF);
+		buffer[offset + 7] = (byte) ((value >>  0) & 0xFF);
+	}
+
+	/**
+	 * Converts the next 8 bytes in the buffer array to a long.
+	 * @param buffer the byte buffer
+	 * @return the long
+	 * @throws ArrayIndexOutOfBoundsException if array is too short
+	 * @see #bytesToLong(byte[], int)
+	 */
+	public static long bytesToLong(byte[] buffer) {
+		return bytesToLong(buffer, 0);
+	}
+
+	/**
+	 * Converts the next 8 bytes in the buffer array to a long.
+	 * @param buffer the byte buffer
+	 * @param offset the offset
+	 * @return the long
+	 * @throws ArrayIndexOutOfBoundsException if array is too short or offset is invalid
+	 * @see #bytesToLong(byte[])
+	 */
+	public static long bytesToLong(byte[] buffer, int offset) {
+		long value = buffer[offset] & 0xFF;
+		for (int i = 1; i < 8; i++) {
+			value <<= 8;
+			value |= buffer[offset + i] & 0xFF;
+		}
 		return value;
 	}
 
