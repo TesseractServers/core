@@ -39,12 +39,11 @@ public class DataUtility {
 	 * @see #intToBytes(int)
 	 * @see #intToBytes(int, byte[])
 	 */
-	@SuppressWarnings({"PointlessArithmeticExpression", "PointlessBitwiseExpression"})
 	public static void intToBytes(int value, byte[] buffer, int offset) {
-		buffer[offset + 0] = (byte) ((value >> 24) & 0xFF);
-		buffer[offset + 1] = (byte) ((value >> 16) & 0xFF);
-		buffer[offset + 2] = (byte) ((value >>  8) & 0xFF);
-		buffer[offset + 3] = (byte) ((value >>  0) & 0xFF);
+		for (int i = 0; i < 4; i++) {
+			int shift = (7 - i) * 8;
+			buffer[offset + i] = (byte) ((value >> shift) & 0xFF);
+		}
 	}
 
 	/**
@@ -111,16 +110,11 @@ public class DataUtility {
 	 * @see #longToBytes(long)
 	 * @see #longToBytes(long, byte[])
 	 */
-	@SuppressWarnings({"PointlessArithmeticExpression", "PointlessBitwiseExpression"})
 	public static void longToBytes(long value, byte[] buffer, int offset) {
-		buffer[offset + 0] = (byte) ((value >> 56) & 0xFF);
-		buffer[offset + 1] = (byte) ((value >> 48) & 0xFF);
-		buffer[offset + 2] = (byte) ((value >> 40) & 0xFF);
-		buffer[offset + 3] = (byte) ((value >> 32) & 0xFF);
-		buffer[offset + 4] = (byte) ((value >> 24) & 0xFF);
-		buffer[offset + 5] = (byte) ((value >> 16) & 0xFF);
-		buffer[offset + 6] = (byte) ((value >>  8) & 0xFF);
-		buffer[offset + 7] = (byte) ((value >>  0) & 0xFF);
+		for (int i = 0; i < 8; i++) {
+			int shift = (7 - i) * 8;
+			buffer[offset + i] = (byte) ((value >> shift) & 0xFF);
+		}
 	}
 
 	/**
