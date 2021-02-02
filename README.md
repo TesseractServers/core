@@ -8,3 +8,30 @@
 	<img src="https://img.shields.io/github/v/release/TesseractServers/core?label=Stable">
 	<img src="https://img.shields.io/github/v/release/TesseractServers/core?label=Preview&include_prereleases">
 </p>
+
+
+
+## Installation
+
+1. Add the repository to your `pom.xml`:
+```xml
+<repository>
+    <id>tassia-nexus</id>
+    <url>https://nexus.tassia.net/repository/maven-public/</url>
+</repository>
+```
+
+2. Add the dependency to your `pom.xml`:
+```xml
+<dependency>
+    <groupId>com.tesseractservers</groupId>
+    <artifactId>core</artifactId>
+    <version>1.0.0-PRE-1</version>
+</dependency>
+```
+
+
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/TesseractServers/core/blob/main/LICENSE).
