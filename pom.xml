@@ -18,12 +18,19 @@
 			<groupId>net.tassia</groupId>
 			<artifactId>event-api</artifactId>
 			<version>1.0.0-R0.2</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>
 			<version>20.1.0</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
