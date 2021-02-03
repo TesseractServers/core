@@ -1,5 +1,9 @@
 package com.tesseractservers;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 /**
  * Supplies utility for handling data (e.g. converting ints to bytes and vice versa).
  * @since Core 1.0
@@ -70,6 +74,35 @@ public class DataUtility {
 		for (int i = 1; i < 4; i++) {
 			value <<= 8;
 			value |= buffer[offset + i] & 0xFF;
+		}
+		return value;
+	}
+
+	/**
+	 * Writes the given integer as 4 bytes to the output stream.
+	 * @param out the output stream
+	 * @param value the integer
+	 * @throws IOException if an I/O error occurs
+	 */
+	public static void writeInt(OutputStream out, int value) throws IOException {
+		for (int i = 0; i < 4; i++) {
+			int shift = (7 - i) * 8;
+			out.write(value >> shift & 0xFF);
+		}
+	}
+
+	/**
+	 * Reads the next 4 bytes of the input stream and returns them as an integer.
+	 * @implNote This method does not throw an {@link java.io.EOFException} if the stream end is reached.
+	 * @param in the input stream
+	 * @return the integer
+	 * @throws IOException if an I/O error occurs
+	 */
+	public static int readInt(InputStream in) throws IOException {
+		int value = in.read() & 0xFF;
+		for (int i = 1; i < 4; i++) {
+			value <<= 8;
+			value |= in.read() & 0xFF;
 		}
 		return value;
 	}
