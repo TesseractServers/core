@@ -49,7 +49,7 @@ public class DataUtilityTest {
 	}
 
 	@Test
-	public void testLongsRandom() {
+	public void testLongsArraysRandom() {
 		Random random = new Random();
 		for (int i = 0; i < ITERATIONS; i++) {
 			long x = random.nextLong();
@@ -63,6 +63,23 @@ public class DataUtilityTest {
 					"\nRe-converted value: " + Long.toHexString(x2) +
 					"\n---------- << ERROR INFORMATION >> ----------");
 			}
+		}
+	}
+
+	@Test
+	public void testLongsStreamsRandom() throws IOException {
+		final long[] actualValues = new long[ITERATIONS];
+		Random random = new Random();
+
+		ByteArrayOutputStream out = new ByteArrayOutputStream(8 * ITERATIONS);
+		for (int i = 0; i < ITERATIONS; i++) {
+			actualValues[i] = random.nextLong();
+			DataUtility.writeLong(out, actualValues[i]);
+		}
+
+		ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
+		for (int i = 0; i < ITERATIONS; i++) {
+			assertEquals(actualValues[i], DataUtility.readLong(in));
 		}
 	}
 

@@ -178,6 +178,35 @@ public class DataUtility {
 		return value;
 	}
 
+	/**
+	 * Writes the given long as 8 bytes to the output stream.
+	 * @param out the output stream
+	 * @param value the long
+	 * @throws IOException if an I/O error occurs
+	 */
+	public static void writeLong(OutputStream out, long value) throws IOException {
+		for (int i = 0; i < 8; i++) {
+			int shift = (7 - i) * 8;
+			out.write((int) (value >> shift & 0xFF));
+		}
+	}
+
+	/**
+	 * Reads the next 8 bytes of the input stream and returns them as a long.
+	 * @implNote This method does not throw an {@link java.io.EOFException} if the stream end is reached.
+	 * @param in the input stream
+	 * @return the long
+	 * @throws IOException if an I/O error occurs
+	 */
+	public static long readLong(InputStream in) throws IOException {
+		long value = in.read() & 0xFF;
+		for (int i = 1; i < 8; i++) {
+			value <<= 8;
+			value |= in.read() & 0xFF;
+		}
+		return value;
+	}
+
 
 
 	/**
