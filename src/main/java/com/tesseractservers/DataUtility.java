@@ -18,7 +18,7 @@ public class DataUtility {
 	 */
 	public static byte[] intToBytes(int value) {
 		byte[] buffer = new byte[4];
-		intToBytes(value, buffer, 0);
+		intToBytes(value, buffer);
 		return buffer;
 	}
 
@@ -118,7 +118,7 @@ public class DataUtility {
 	 */
 	public static byte[] longToBytes(long value) {
 		byte[] buffer = new byte[8];
-		longToBytes(value, buffer, 0);
+		longToBytes(value, buffer);
 		return buffer;
 	}
 
