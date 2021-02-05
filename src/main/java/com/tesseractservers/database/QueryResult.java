@@ -1,5 +1,10 @@
 package com.tesseractservers.database;
 
+import com.tesseractservers.Base16;
+
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -105,6 +110,23 @@ public class QueryResult {
 	 */
 	public Date getDate(int index) throws SQLException {
 		return new Date(internal.getLong(index));
+	}
+
+	/**
+	 * Loads the data stored at the given index into the entity.
+	 * @param index the index
+	 * @param entity the entity
+	 * @return the entity
+	 * @throws SQLException if an SQL error occurs
+	 */
+	public DynamicDataEntity getEntity(int index, DynamicDataEntity entity) throws SQLException {
+		byte[] data = Base16.decode(internal.getString(index));
+		try {
+			entity.load(new DataInputStream(new ByteArrayInputStream(data)));
+		} catch (IOException ex) {
+			throw new SQLException("Failed to load DynamicDataEntity @ index " + index, ex);
+		}
+		return entity;
 	}
 
 }
