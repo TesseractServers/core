@@ -1,5 +1,10 @@
 package com.tesseractservers.database;
 
+import com.tesseractservers.Base16;
+
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -149,6 +154,24 @@ public class Statement {
 		internal.setLong(index, value.getTime());
 	}
 
+	/**
+	 * Sets the {@link DynamicDataEntity} at the given index.
+	 * @param index the index
+	 * @param entity the value
+	 * @throws SQLException if an SQL error occurs
+	 */
+	public void setEntity(int index, DynamicDataEntity entity) throws SQLException {
+		try {
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			entity.save(new DataOutputStream(out));
+
+			this.index = index;
+			internal.setString(index, Base16.encode(out.toByteArray()));
+		} catch (IOException ex) {
+			throw new SQLException("Failed to save DynamicDataEntity @ index " + index, ex);
+		}
+	}
+
 
 
 	/**
@@ -248,6 +271,21 @@ public class Statement {
 	 */
 	public void appendDate(Date value) throws SQLException {
 		internal.setLong(++index, value.getTime());
+	}
+
+	/**
+	 * Appends the {@link DynamicDataEntity}.
+	 * @param entity the value
+	 * @throws SQLException if an SQL error occurs
+	 */
+	public void appendEntity(DynamicDataEntity entity) throws SQLException {
+		try {
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			entity.save(new DataOutputStream(out));
+			internal.setString(++index, Base16.encode(out.toByteArray()));
+		} catch (IOException ex) {
+			throw new SQLException("Failed to save DynamicDataEntity @ index " + index, ex);
+		}
 	}
 
 
