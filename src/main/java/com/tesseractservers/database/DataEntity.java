@@ -11,25 +11,28 @@ public interface DataEntity {
 
 	/**
 	 * Creates this data object.
+	 * @param db the database
 	 * @throws SQLException if an SQL error occurs
 	 */
-	void create() throws SQLException;
+	void create(Database db) throws SQLException;
 
 	/**
 	 * Deletes this data object.
+	 * @param db the database
 	 * @throws SQLException if an SQL error occurs
 	 */
-	void delete() throws SQLException;
+	void delete(Database db) throws SQLException;
 
 	/**
 	 * Updates a single column value.<br/>
 	 * <b>Note:</b> This method should only be used internally.
+	 * @param db the database
 	 * @param column the column name
 	 * @param value the new value
 	 * @param setter the function setter
 	 * @param <T> the type
 	 * @throws SQLException if an SQL error occurs
 	 */
-	<T> void updateColumn(String column, T value, FunctionalStatementSetter<T> setter) throws SQLException;
+	<T> void updateColumn(Database db, String column, T value, FunctionalStatementSetter<T> setter) throws SQLException;
 
 }
