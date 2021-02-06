@@ -36,4 +36,21 @@ public abstract class DynamicDataEntity {
 	 */
 	public abstract void save(DataOutputStream out) throws IOException;
 
+
+
+	/**
+	 * Represents an empty data set.
+	 */
+	public static class Empty extends DynamicDataEntity {
+
+		@Override
+		public void load(DataInputStream dataInputStream) {
+		}
+
+		@Override
+		public void save(DataOutputStream dataOutputStream) {
+		}
+
+	}
+
 }
