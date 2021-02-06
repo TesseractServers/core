@@ -41,16 +41,24 @@ public interface DynamicDataEntity {
 	/**
 	 * Represents an empty data set.
 	 */
-	class Empty implements DynamicDataEntity {
+	interface IEmpty extends DynamicDataEntity {
 
 		@Override
-		public void load(DataInputStream dataInputStream) {
+		default void load(DataInputStream dataInputStream) {
 		}
 
 		@Override
-		public void save(DataOutputStream dataOutputStream) {
+		default void save(DataOutputStream dataOutputStream) {
 		}
 
+	}
+
+
+
+	/**
+	 * Represents an empty data set.
+	 */
+	class Empty implements IEmpty {
 	}
 
 	/**
