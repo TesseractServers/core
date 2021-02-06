@@ -16,7 +16,7 @@ import java.io.IOException;
  * @since Core 1.0
  * @author Tassilo
  */
-public abstract class DynamicDataEntity {
+public interface DynamicDataEntity {
 
 	/**
 	 * Reads the data of this entity from the {@link DataInputStream}.
@@ -25,7 +25,7 @@ public abstract class DynamicDataEntity {
 	 * @throws IOException if an I/O error occurs, this shouldn't ever happen, however
 	 * methods of {@link DataInputStream} are able to throw IOExceptions per specification.
 	 */
-	public abstract void load(DataInputStream in) throws IOException;
+	void load(DataInputStream in) throws IOException;
 
 	/**
 	 * Writes the data of this entity to the {@link DataOutputStream}.
@@ -34,14 +34,14 @@ public abstract class DynamicDataEntity {
 	 * @throws IOException if an I/O error occurs, this shouldn't ever happen, however
 	 * methods of {@link DataInputStream} are able to throw IOExceptions per specification.
 	 */
-	public abstract void save(DataOutputStream out) throws IOException;
+	void save(DataOutputStream out) throws IOException;
 
 
 
 	/**
 	 * Represents an empty data set.
 	 */
-	public static class Empty extends DynamicDataEntity {
+	class Empty implements DynamicDataEntity {
 
 		@Override
 		public void load(DataInputStream dataInputStream) {
@@ -52,5 +52,10 @@ public abstract class DynamicDataEntity {
 		}
 
 	}
+
+	/**
+	 * Represents an empty data set.
+	 */
+	Empty EMPTY = new Empty();
 
 }
