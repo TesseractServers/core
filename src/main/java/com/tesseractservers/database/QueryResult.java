@@ -119,7 +119,7 @@ public class QueryResult {
 	 * @return the entity
 	 * @throws SQLException if an SQL error occurs
 	 */
-	public DynamicDataEntity getEntity(int index, DynamicDataEntity entity) throws SQLException {
+	public <T extends DynamicDataEntity> T getEntity(int index, T entity) throws SQLException {
 		byte[] data = Base16.decode(internal.getString(index));
 		try {
 			entity.load(new DataInputStream(new ByteArrayInputStream(data)));
