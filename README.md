@@ -11,6 +11,17 @@
 
 
 
+## Features
+
+- Database Utility
+- Logging
+- Base16
+- BitFlags
+- Comparators Utility
+- Data Utility
+
+
+
 ## Installation
 
 1. Add the repository to your `pom.xml`:
@@ -26,7 +37,7 @@
 <dependency>
     <groupId>com.tesseractservers</groupId>
     <artifactId>core</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
