@@ -1,4 +1,4 @@
-package com.tesseractservers;
+package net.proxzi;
 
 /**
  * This is a utility class for setting/getting flag statuses within a long.

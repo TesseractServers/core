@@ -1,4 +1,4 @@
-package com.tesseractservers.database;
+package net.proxzi.database;
 
 import org.intellij.lang.annotations.Language;
 

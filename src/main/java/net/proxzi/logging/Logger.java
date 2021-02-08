@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 /**
  * This class is used to publish logs.

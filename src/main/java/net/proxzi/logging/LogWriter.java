@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 /**
  * This functional interface is used to write logs to console, files or store them in databases.

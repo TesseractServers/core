@@ -1,4 +1,4 @@
-package com.tesseractservers;
+package net.proxzi;
 
 import java.io.IOException;
 import java.io.InputStream;

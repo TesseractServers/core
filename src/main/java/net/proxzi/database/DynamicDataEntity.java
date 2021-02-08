@@ -1,4 +1,4 @@
-package com.tesseractservers.database;
+package net.proxzi.database;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

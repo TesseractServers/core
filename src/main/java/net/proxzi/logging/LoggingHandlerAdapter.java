@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -6,11 +6,11 @@ import java.util.logging.LogRecord;
 
 /**
  * This class acts as a bridge between {@link java.util.logging.Logger}
- * and {@link com.tesseractservers.logging.Logger}.
+ * and {@link Logger}.
  * @since Core 1.0
  * @author Tassilo
  * @see java.util.logging.Logger
- * @see com.tesseractservers.logging.Logger
+ * @see Logger
  */
 public class LoggingHandlerAdapter extends Handler {
 

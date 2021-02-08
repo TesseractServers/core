@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 /**
  * Represents a single log.

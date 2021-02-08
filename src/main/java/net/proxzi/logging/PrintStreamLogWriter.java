@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;

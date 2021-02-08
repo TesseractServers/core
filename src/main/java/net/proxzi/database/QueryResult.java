@@ -1,6 +1,6 @@
-package com.tesseractservers.database;
+package net.proxzi.database;
 
-import com.tesseractservers.Base16;
+import net.proxzi.Base16;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;

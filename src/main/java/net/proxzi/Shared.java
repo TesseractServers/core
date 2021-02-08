@@ -1,6 +1,6 @@
-package com.tesseractservers;
+package net.proxzi;
 
-import com.tesseractservers.database.Database;
+import net.proxzi.database.Database;
 import net.tassia.event.EventManager;
 
 /**

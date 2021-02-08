@@ -1,4 +1,4 @@
-package com.tesseractservers;
+package net.proxzi;
 
 /**
  * Allows to convert byte arrays to Base16 (hexadecimal).

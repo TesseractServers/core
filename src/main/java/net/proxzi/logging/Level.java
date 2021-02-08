@@ -1,4 +1,4 @@
-package com.tesseractservers.logging;
+package net.proxzi.logging;
 
 /**
  * Represents the level of a log entry. Used for filtering logs.
