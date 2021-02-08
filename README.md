@@ -35,7 +35,7 @@
 2. Add the dependency to your `pom.xml`:
 ```xml
 <dependency>
-    <groupId>com.tesseractservers</groupId>
+    <groupId>net.proxzi</groupId>
     <artifactId>core</artifactId>
     <version>1.0.1</version>
 </dependency>
