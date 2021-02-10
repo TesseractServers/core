@@ -1,5 +1,6 @@
 package net.proxzi;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -205,6 +206,33 @@ public class DataUtility {
 			value |= in.read() & 0xFF;
 		}
 		return value;
+	}
+
+
+
+	/**
+	 * Generates a hexadecimal string out of the given color. The string is prefixed by a '#'.
+	 * Furthermore, this function will generate uppercase hexadecimal characters.
+	 * @param color the source color
+	 * @return the generated string
+	 */
+	public static String colorToHex(Color color) {
+		return String.format("#%02X%02X%02X%02X", color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+	}
+
+	/**
+	 * Parses a hex string to the given color.
+	 * @param hex the string to parse
+	 * @return the parsed color
+	 */
+	public static Color hexToColor(String hex) {
+		if (hex.charAt(0) == '#') hex = hex.substring(1);
+		return new Color(
+			Integer.valueOf(hex.substring(0, 2),16),
+			Integer.valueOf(hex.substring(2, 4),16),
+			Integer.valueOf(hex.substring(4, 6),16),
+			Integer.valueOf(hex.substring(6, 8),16)
+		);
 	}
 
 
