@@ -2,6 +2,7 @@ package net.proxzi;
 
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -80,6 +81,21 @@ public class DataUtilityTest {
 		ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
 		for (int i = 0; i < ITERATIONS; i++) {
 			assertEquals(actualValues[i], DataUtility.readLong(in));
+		}
+	}
+
+	private Color randomColor(Random r) {
+		return new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256), r.nextInt(256));
+	}
+
+	@Test
+	public void testColorsRandom() {
+		Random random = new Random();
+		for (int i = 0; i < ITERATIONS; i++) {
+			Color color = randomColor(random);
+			String hex = DataUtility.colorToHex(color);
+			Color color2 = DataUtility.hexToColor(hex);
+			assertEquals("Hex conversion failed: " + color.toString() + " - " + hex + color2.toString(), color, color2);
 		}
 	}
 
