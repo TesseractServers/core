@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Supplies utility for handling data (e.g. converting ints to bytes and vice versa).
+ * Supplies utility for handling/converting data (e.g. converting ints to bytes and vice versa).
  * @since Core 1.0
  * @author Tassilo
  */
