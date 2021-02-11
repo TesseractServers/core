@@ -33,10 +33,24 @@ public class Base16 {
 	 * @param input the byte array to encode
 	 * @return the encoded string
 	 * @see #decode(String)
+	 * @see #encode(byte[], int, int) 
 	 */
 	public static String encode(byte[] input) {
+		return encode(input, 0, input.length);
+	}
+
+	/**
+	 * Encodes a byte array into a Base16 starting reading from the array at the given offset for the given length.
+	 * @param input the byte array to encode
+	 * @param offset the index of the input to start at
+	 * @param length how many bytes to encode
+	 * @return the encoded string
+	 * @see #decode(String)
+	 * @see #encode(byte[]) 
+	 */
+	public static String encode(byte[] input, int offset, int length) {
 		char[] chars = new char[input.length * 2];
-		for (int i = 0; i < input.length; i++) {
+		for (int i = offset; i < offset + length; i++) {
 			chars[i * 2] = TABLE[(input[i] >> 4) & 0xf];
 			chars[i * 2 + 1] = TABLE[input[i] & 0xf];
 		}
