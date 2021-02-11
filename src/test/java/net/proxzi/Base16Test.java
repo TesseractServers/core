@@ -7,11 +7,13 @@ import java.util.Random;
 
 public class Base16Test {
 
+	public static final int ITERATIONS = 4096 * 4096;
+
 	@Test
 	public void testRandoms() {
 		Random r = new Random();
 		byte[] buf = new byte[16];
-		for (int i = 0; i < 512; i++) {
+		for (int i = 0; i < ITERATIONS; i++) {
 			r.nextBytes(buf);
 			String hex = Base16.encode(buf);
 			byte[] buf2 = Base16.decode(hex);
