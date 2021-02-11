@@ -33,7 +33,7 @@ public class Base16 {
 	 * @param input the byte array to encode
 	 * @return the encoded string
 	 * @see #decode(String)
-	 * @see #encode(byte[], int, int) 
+	 * @see #encode(byte[], int, int)
 	 */
 	public static String encode(byte[] input) {
 		return encode(input, 0, input.length);
@@ -46,7 +46,7 @@ public class Base16 {
 	 * @param length how many bytes to encode
 	 * @return the encoded string
 	 * @see #decode(String)
-	 * @see #encode(byte[]) 
+	 * @see #encode(byte[])
 	 */
 	public static String encode(byte[] input, int offset, int length) {
 		char[] chars = new char[input.length * 2];
