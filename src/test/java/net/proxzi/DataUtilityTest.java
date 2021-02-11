@@ -95,7 +95,7 @@ public class DataUtilityTest {
 			Color color = randomColor(random);
 			String hex = DataUtility.colorToHex(color);
 			Color color2 = DataUtility.hexToColor(hex);
-			assertEquals("Hex conversion failed: " + color.toString() + " - " + hex + color2.toString(), color, color2);
+			assertEquals("Hex conversion failed: " + color.toString() + " - " + hex + " - " + color2.toString(), color, color2);
 		}
 	}
 
