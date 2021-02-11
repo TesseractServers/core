@@ -217,7 +217,9 @@ public class DataUtility {
 	 * @return the generated string
 	 */
 	public static String colorToHex(Color color) {
-		return String.format("#%02X%02X%02X%02X", color.getRed(), color.getGreen(), color.getBlue(), color.getAlpha());
+		int rgba = color.getRGB();
+		rgba = (rgba << 8) | color.getAlpha();
+		return Base16.encode(intToBytes(rgba));
 	}
 
 	/**
@@ -227,12 +229,11 @@ public class DataUtility {
 	 */
 	public static Color hexToColor(String hex) {
 		if (hex.charAt(0) == '#') hex = hex.substring(1);
-		return new Color(
-			Integer.valueOf(hex.substring(0, 2),16),
-			Integer.valueOf(hex.substring(2, 4),16),
-			Integer.valueOf(hex.substring(4, 6),16),
-			Integer.valueOf(hex.substring(6, 8),16)
-		);
+		if (hex.length() == 8) {
+			int rgba = bytesToInt(Base16.decode(hex));
+			return new Color((rgba >>> 8) | (rgba << (Integer.SIZE - 8)), true);
+		}
+		throw new IllegalArgumentException("Invalid color string: #" + hex);
 	}
 
 
