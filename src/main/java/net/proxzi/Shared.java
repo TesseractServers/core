@@ -1,6 +1,7 @@
 package net.proxzi;
 
 import net.proxzi.database.Database;
+import net.proxzi.logging.Logger;
 import net.tassia.event.EventManager;
 
 /**
@@ -14,6 +15,11 @@ public class Shared {
 	 * This static field holds a reference to a shared {@link EventManager}.
 	 */
 	public static final EventManager EVENTS = new EventManager();
+
+	/**
+	 * This static field holds a reference to a shared {@link Logger}.
+	 */
+	public static final Logger LOGGER = new Logger();
 
 	/**
 	 * This static field holds a reference to a shared global database connection.
