@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.proxzi</groupId>
 	<artifactId>core</artifactId>
-	<version>1.0.1-PRE-13</version>
+	<version>1.0.1-PRE-14</version>
 
 	<repositories>
 		<repository>
