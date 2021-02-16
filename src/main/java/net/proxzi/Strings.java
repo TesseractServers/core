@@ -1,11 +1,23 @@
 package net.proxzi;
 
+import java.security.SecureRandom;
+
 /**
  * Utility class for string manipulation.
  * @since Core 1.0
  * @author Tassilo
  */
 public class Strings {
+
+	/**
+	 * Represents a string containing all hexadecimal characters (0-9, a-f).
+	 */
+	public static final String HEXADECIMAL_STRING = "0123456789abcdef";
+
+	/**
+	 * Represents a char array containing all hexadecimal characters (0-9, a-f).
+	 */
+	public static final char[] HEXADECIMAL = HEXADECIMAL_STRING.toCharArray();
 
 	/**
 	 * Represents a string containing all digits (0-9).
@@ -90,6 +102,23 @@ public class Strings {
 		}
 		if (sb.length() == 0) {
 			throw new IllegalArgumentException("Cannot generate slug for '" + input + "'.");
+		}
+		return sb.toString();
+	}
+
+
+
+	/**
+	 * Generates a new random string of the given chars with the given length.
+	 * @param chars the characters
+	 * @param length the length
+	 * @return the generated string
+	 */
+	public static String randomString(char[] chars, int length) {
+		SecureRandom random = new SecureRandom();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			sb.append(chars[random.nextInt(chars.length)]);
 		}
 		return sb.toString();
 	}
