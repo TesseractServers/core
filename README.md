@@ -37,7 +37,7 @@
 <dependency>
     <groupId>net.proxzi</groupId>
     <artifactId>core</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -45,4 +45,4 @@
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/TesseractServers/core/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/proxzi-development/core/blob/main/LICENSE).
