@@ -40,7 +40,7 @@ object Strings {
 	/**
 	 * Represents a string containing all latin letters and digits (A-Z, a-z, 0-9).
 	 */
-	const val ALPHANUMERIC_STRING = LETTERS + DIGITS
+	const val ALPHANUMERIC = LETTERS + DIGITS
 
 
 
