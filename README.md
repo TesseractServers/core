@@ -1,5 +1,5 @@
 <h1 align="center">core</h1>
-<p align="center">A collection of libraries to make Java development easier.</p>
+<p align="center">A collection of libraries to make Kotlin development easier.</p>
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/TesseractServers/core?label=License" alt="LICENSE">
@@ -13,11 +13,9 @@
 
 ## Features
 
-- Database Utility
 - Logging
 - Base16
 - BitFlags
-- Comparators Utility
 - Data Utility
 
 
@@ -37,7 +35,7 @@
 <dependency>
     <groupId>net.proxzi</groupId>
     <artifactId>core</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -45,4 +43,4 @@
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/TesseractServers/core/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/proxzi-development/core/blob/main/LICENSE).
