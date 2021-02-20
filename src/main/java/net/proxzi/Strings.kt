@@ -10,6 +10,41 @@ import java.security.SecureRandom
 object Strings {
 
 	/**
+	 * Represents a string containing all hexadecimal characters (0-9, a-f).
+	 */
+	@Suppress("SpellCheckingInspection")
+	const val HEXADECIMAL = "0123456789abcdef"
+
+	/**
+	 * Represents a string containing all digits (0-9).
+	 */
+	const val DIGITS = "0123456789"
+
+	/**
+	 * Represents a string containing all latin uppercase letters (A-Z).
+	 */
+	@Suppress("SpellCheckingInspection")
+	const val LETTERS_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+	/**
+	 * Represents a string containing all latin lowercase letters (a-z).
+	 */
+	@Suppress("SpellCheckingInspection")
+	const val LETTERS_LOWERCASE = "abcdefghijklmnopqrstuvwxyz"
+
+	/**
+	 * Represents a string containing all latin letters (A-Z, a-z).
+	 */
+	const val LETTERS = LETTERS_UPPERCASE + LETTERS_LOWERCASE
+
+	/**
+	 * Represents a string containing all latin letters and digits (A-Z, a-z, 0-9).
+	 */
+	const val ALPHANUMERIC_STRING = LETTERS + DIGITS
+
+
+
+	/**
 	 * Generates an URL slug for the input string. The input string must be alphanumeric.
 	 * @param input the input string
 	 * @return the generated slug
@@ -40,17 +75,20 @@ object Strings {
 		return sb.toString()
 	}
 
+
+
 	/**
 	 * Generates a new random string of the given chars with the given length.
 	 * @param chars the characters
 	 * @param length the length
 	 * @return the generated string
 	 */
-	fun randomString(chars: CharArray, length: Int): String {
+	fun randomString(chars: String, length: Int): String {
+		val realChars = chars.toCharArray()
 		val random = SecureRandom()
-		val sb = StringBuilder()
+		val sb = StringBuilder(length)
 		for (i in 0 until length) {
-			sb.append(chars[random.nextInt(chars.size)])
+			sb.append(realChars[random.nextInt(realChars.size)])
 		}
 		return sb.toString()
 	}
