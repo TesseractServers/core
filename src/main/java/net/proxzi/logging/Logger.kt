@@ -9,7 +9,7 @@ package net.proxzi.logging
  * @since Core 1.1
  * @author Tassilo
  */
-class Logger(val writers: Set<LogWriter> = setOf()) {
+class Logger(val writers: MutableSet<LogWriter> = mutableSetOf()) {
 
 	/**
 	 * Publishes a log.
