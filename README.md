@@ -13,11 +13,9 @@
 
 ## Features
 
-- Database Utility
 - Logging
 - Base16
 - BitFlags
-- Comparators Utility
 - Data Utility
 
 
