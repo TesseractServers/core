@@ -45,7 +45,7 @@ class DataUtilityTest {
 		val input = ByteArrayInputStream(out.toByteArray())
 
 		for (i in 0 until ITERATIONS_FAST) {
-			Assert.assertEquals(actualValues[i], DataUtility.readInt(input).toLong())
+			Assert.assertEquals(actualValues[i], DataUtility.readInt(input))
 		}
 	}
 
