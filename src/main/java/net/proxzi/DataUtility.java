@@ -13,6 +13,28 @@ import java.io.OutputStream;
 public class DataUtility {
 
 	/**
+	 * Rotates the bits of an integer by the given amount to the left.
+	 * @param value the integer
+	 * @param amount the amount
+	 * @return the rotated integer
+	 */
+	public static int leftRotate(int value, int amount) {
+		return (value << amount) | (value >> (Integer.SIZE - amount));
+	}
+
+	/**
+	 * Rotates the bits of an integer by the given amount to the right.
+	 * @param value the integer
+	 * @param amount the amount
+	 * @return the rotated integer
+	 */
+	public static int rightRotate(int value, int amount) {
+		return (value >> amount) | (value << (Integer.SIZE - amount));
+	}
+
+
+
+	/**
 	 * Converts the given integer to 4 bytes.
 	 * @param value the integer
 	 * @return the bytes
