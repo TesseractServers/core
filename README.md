@@ -1,5 +1,5 @@
 <h1 align="center">core</h1>
-<p align="center">A collection of libraries to make Kotlin development easier.</p>
+<p align="center">A collection of libraries to make Java development easier (that turns out to also be relatively lightweight).</p>
 
 <p align="center">
 	<img src="https://img.shields.io/github/license/TesseractServers/core?label=License" alt="LICENSE">
