@@ -8,6 +8,8 @@ package net.proxzi.math.vector
  */
 abstract class Vector3<TYPE, THIS>: Vector<TYPE, THIS>() {
 
+	override val dimensions: Int = 3
+
 	/**
 	 * Calculates the cross product of this vector and the given vector.
 	 *
